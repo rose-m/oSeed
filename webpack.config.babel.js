@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+var ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 
 const ROOT_PATH = path.resolve(__dirname);
 const APP_PATH = path.resolve(ROOT_PATH, 'app');
@@ -23,8 +24,15 @@ module.exports = {
     },
 
     resolve: {
-        extensions: ['', '.js', '.scss', '.html']
+        extensions: ['', '.js', '.ts', '.scss', '.html']
     },
+
+    plugins: [
+        new ngAnnotatePlugin({
+            add: true
+        }),
+        new webpack.optimize.UglifyJsPlugin()
+    ],
 
     module: {
         loaders: [{
@@ -33,6 +41,10 @@ module.exports = {
             query: {
                 presets: ['react', 'es2015']
             },
+            include: APP_PATH
+        }, {
+            test: /\.ts$/,
+            loader: 'ts',
             include: APP_PATH
         }, {
             test: /\.scss$/,
