@@ -10,7 +10,7 @@ module.exports = {
     debug: true,
 
     entry: {
-        app: path.resolve(APP_PATH, 'entry'),
+        app: path.resolve(APP_PATH, 'ts', 'entry'),
         styles: path.resolve(APP_PATH, 'styles')
     },
     target: 'atom',
@@ -31,20 +31,17 @@ module.exports = {
         new ngAnnotatePlugin({
             add: true
         }),
-        new webpack.optimize.UglifyJsPlugin()
+        //new webpack.optimize.UglifyJsPlugin()
     ],
 
     module: {
         loaders: [{
-            test: /\.jsx?$/,
+            test: /\.js$/,
             loader: 'babel',
-            query: {
-                presets: ['react', 'es2015']
-            },
             include: APP_PATH
         }, {
             test: /\.ts$/,
-            loader: 'ts',
+            loaders: ['babel', 'ts'],
             include: APP_PATH
         }, {
             test: /\.scss$/,
