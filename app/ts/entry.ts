@@ -1,8 +1,7 @@
 import 'angular';
+import * as constants from "./constants";
 
-export const APP = 'app';
-
-angular.module(APP, [])
+angular.module(constants.APP, [])
     .run(() => {
         const h1 = document.createElement('h1');
         h1.innerText = 'Hello World';
