@@ -10,8 +10,8 @@ module.exports = {
     debug: true,
 
     entry: {
-        app: path.resolve(APP_PATH, 'ts', 'entry'),
-        styles: path.resolve(APP_PATH, 'styles')
+        components: ['font-awesome-loader', 'bootstrap-loader'],
+        app: path.resolve(APP_PATH, 'ts', 'entry')
     },
     target: 'atom',
 
@@ -30,7 +30,7 @@ module.exports = {
     plugins: [
         new ngAnnotatePlugin({
             add: true
-        }),
+        })
         //new webpack.optimize.UglifyJsPlugin()
     ],
 
@@ -46,6 +46,12 @@ module.exports = {
         }, {
             test: /\.scss$/,
             loaders: ['style', 'css', 'sass']
+        }, {
+            test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+            loader: "url?limit=10000"
+        }, {
+            test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
+            loader: 'file'
         }]
     }
 };
