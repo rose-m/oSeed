@@ -11,7 +11,7 @@ module.exports = {
 
     entry: {
         components: ['font-awesome-loader', 'bootstrap-loader'],
-        app: path.resolve(APP_PATH, 'ts', 'entry')
+        app: path.resolve(APP_PATH, 'components', 'entry')
     },
     target: 'atom',
 
@@ -24,7 +24,10 @@ module.exports = {
     },
 
     resolve: {
-        extensions: ['', '.js', '.ts', '.scss', '.html']
+        extensions: ['', '.js', '.ts', '.scss', '.html'],
+        alias: {
+            jquery: path.resolve(ROOT_PATH, 'bower_components/jquery/dist/jquery.js')
+        }
     },
 
     plugins: [
@@ -52,6 +55,9 @@ module.exports = {
         }, {
             test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
             loader: 'file'
+        }, {
+            test: /\.ng\.html$/,
+            loaders: ['ngtemplate', 'html']
         }]
     }
 };

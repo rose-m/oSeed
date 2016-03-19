@@ -6,6 +6,6 @@
   },
   "files": [
     "typings/main.d.ts",
-    "app/ts/require.d.ts"
+    "app/components/require.d.ts"
   ]
 }
