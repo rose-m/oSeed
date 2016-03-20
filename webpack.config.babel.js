@@ -13,7 +13,7 @@ module.exports = {
         components: ['font-awesome-loader', 'bootstrap-loader'],
         app: path.resolve(APP_PATH, 'components', 'entry')
     },
-    target: 'atom',
+    target: 'electron',
 
     output: {
         path: path.resolve(ROOT_PATH, 'build'),
@@ -33,6 +33,11 @@ module.exports = {
     plugins: [
         new ngAnnotatePlugin({
             add: true
+        }),
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
+            'window.jQuery': 'jquery'
         })
         //new webpack.optimize.UglifyJsPlugin()
     ],

@@ -1,0 +1,24 @@
+{
+  "name": "electron-test",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "rosem <michael_rose@gmx.de>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/rose-m/oSeed",
+  "moduleType": [
+    "amd"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.2"
+  }
+}

@@ -5,7 +5,6 @@
     "target": "es6"
   },
   "files": [
-    "typings/main.d.ts",
-    "app/components/require.d.ts"
+    "typings/main.d.ts"
   ]
 }

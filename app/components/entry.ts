@@ -1,7 +1,6 @@
-import 'jquery';
 import 'angular';
 import 'angular-ui-router';
-import 'underscore';
+import * as _ from 'underscore';
 import * as constants from "./constants";
 import {STATES} from "./states";
 
