@@ -1,20 +1,29 @@
 import electron = require("electron");
+import path = require("path");
 const remote = electron.remote;
 const templateUrl = require('./template.ng.html');
 
 class ProjectSelectionCtrl {
-    test = 'TEST';
+
+    projectName:string;
+    projectFolder:string;
 
     constructor($scope:ng.IScope) {
     }
 
     selectFolder() {
-        remote.dialog.showOpenDialog({
-            title: 'Select Project Folder',
+        const result = remote.dialog.showOpenDialog({
+            title: 'Select Folder',
             properties: ['openDirectory']
-        }, (result) => {
-            alert('Jo buddy: ' + result);
         });
+        if (result) {
+            this.projectFolder = result[0];
+            this.projectName = path.basename(result[0]);
+        }
+    }
+
+    createProject() {
+
     }
 }
 
