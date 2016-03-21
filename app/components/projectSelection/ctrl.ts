@@ -1,3 +1,4 @@
+import "angular";
 import electron = require("electron");
 import path = require("path");
 const remote = electron.remote;
