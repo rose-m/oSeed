@@ -1,3 +1,4 @@
+import {ILoader, LoadingIndicator} from "../loadingIndicator/service";
 import "angular";
 import electron = require("electron");
 import path = require("path");
@@ -9,7 +10,10 @@ class ProjectSelectionCtrl {
     projectName:string;
     projectFolder:string;
 
-    constructor($scope:ng.IScope) {
+    private loader:ILoader;
+
+    constructor($scope:ng.IScope, LoadingIndicator:LoadingIndicator) {
+        this.loader = LoadingIndicator.getLoader();
     }
 
     selectFolder() {
@@ -24,7 +28,7 @@ class ProjectSelectionCtrl {
     }
 
     createProject() {
-
+        this.loader.load();
     }
 }
 

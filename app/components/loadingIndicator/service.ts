@@ -1,3 +1,5 @@
+import * as _ from "underscore";
+
 export interface ILoader {
     load(message?:string);
     update(message:string);
@@ -8,7 +10,7 @@ export class LoadingIndicator {
     static SERVICE_NAME = 'LoadingIndicator';
 
     private loaders:Array<string> = [];
-    private messages:{ [id:string]:string };
+    private messages:{ [id:string]:string } = {};
 
     loading() {
         return this.loaders.length > 0;
