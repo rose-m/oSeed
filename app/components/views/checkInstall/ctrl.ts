@@ -17,7 +17,7 @@ class CheckInstallCtrl {
     }
 
     installPip() {
-        if (!this.Installation.pythonVersion) {
+        if (!this.Installation.pythonVersion || !!this.Installation.pipVersion) {
             return;
         }
 
