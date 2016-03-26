@@ -2,8 +2,8 @@ import * as _ from "underscore";
 
 export interface ILoader {
     load(message?:string);
-    update(message:string);
-    done();
+    update(message:string, apply?);
+    done(apply?);
 }
 
 export class LoadingIndicator {
@@ -11,6 +11,9 @@ export class LoadingIndicator {
 
     private loaders:Array<string> = [];
     private messages:{ [id:string]:string } = {};
+
+    constructor(private $rootScope:ng.IRootScopeService) {
+    }
 
     loading() {
         return this.loaders.length > 0;
@@ -27,11 +30,17 @@ export class LoadingIndicator {
                 this.loaders.unshift(id);
                 this.messages[id] = message;
             },
-            update: (message:string) => {
+            update: (message:string, apply = false) => {
                 this.messages[id] = message;
+                if (apply) {
+                    this.$rootScope.$apply();
+                }
             },
-            done: () => {
+            done: (apply = false) => {
                 this.loaders = _.without(this.loaders, id);
+                if (apply) {
+                    this.$rootScope.$apply();
+                }
             }
         };
     }

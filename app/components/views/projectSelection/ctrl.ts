@@ -1,4 +1,4 @@
-import {ILoader, LoadingIndicator} from "../loadingIndicator/service";
+import {ILoader, LoadingIndicator} from "../../common/loadingIndicator/service";
 import "angular";
 import electron = require("electron");
 import path = require("path");

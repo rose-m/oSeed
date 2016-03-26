@@ -1,0 +1,37 @@
+<div class="top-bar large-margin">
+    <h1 class="title">
+        <i class="fa fa-fw fa-check"></i>
+        Check Installation
+    </h1>
+</div>
+
+<div class="content container">
+    <oseed-checked-tool name="Python" version="{{checkCtrl.Installation.pythonVersion}}">
+        hey
+    </oseed-checked-tool>
+
+    <oseed-checked-tool name="PIP" version="" test="{{checkCtrl.Installation.pipVersion}}">
+        <div ng-if="!checkCtrl.Installation.pythonVersion">
+            <p>Install Python in order to install PIP.</p>
+        </div>
+        <div ng-if="checkCtrl.Installation.pythonVersion">
+            <p>Since Python is installed, we can install PIP for you.</p>
+            <button class="btn btn-primary" ng-click="checkCtrl.installPip()">
+                <i class="fa fa-download"></i> Install PIP
+            </button>
+        </div>
+    </oseed-checked-tool>
+
+    <oseed-checked-tool name="oTree" version="{{checkCtrl.Installation.otreeVersion}}">
+        <div ng-if="!checkCtrl.Installation.pipVersion">
+            <p>Install PIP in order to install oTree.</p>
+        </div>
+        <div ng-if="checkCtrl.Installation.pipVersion">
+            <p>Since PIP is installed, we can install oTree for you.</p>
+            <button class="btn btn-primary" ng-click="checkCtrl.installOtree()">
+                <i class="fa fa-download"></i> Install oTree
+            </button>
+        </div>
+    </oseed-checked-tool>
+</div>
+

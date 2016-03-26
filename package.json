@@ -39,6 +39,7 @@
     "angular": "^1.4.8",
     "angular-ui-router": "^0.2.18",
     "bootstrap-sass": "^3.3.6",
-    "font-awesome": "^4.5.0"
+    "font-awesome": "^4.5.0",
+    "tmp": "0.0.28"
   }
 }

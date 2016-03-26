@@ -8,6 +8,7 @@
   background: transparentize($gray-light, 0.3);
   color: #fff;
   z-index: 1000;
+  cursor: progress !important;
 
   > div {
     position: absolute;

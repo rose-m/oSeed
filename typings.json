@@ -5,6 +5,7 @@
     "github-electron": "registry:dt/github-electron#0.36.3+20160319055237",
     "jquery": "registry:dt/jquery#1.10.0+20160316155526",
     "node": "registry:dt/node#4.0.0+20160319033040",
+    "tmp": "registry:dt/tmp#0.0.0+20160317120654",
     "underscore": "registry:dt/underscore#1.7.0+20160316155526"
   }
 }

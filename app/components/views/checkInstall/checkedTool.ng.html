@@ -1,0 +1,15 @@
+<div class="alert" ng-class="!!version ? 'alert-success' : 'alert-danger'">
+    <p>
+        <i class="fa fa-fw" ng-class="!!version ? 'fa-check': 'fa-times'"></i>
+        <b>{{name}}</b>
+    </p>
+    <p ng-if="version">
+        <i class="fa fa-fw"></i>
+        <i>Detected version: {{version}}</i>
+    </p>
+    <div ng-if="!version">
+        <hr>
+        <h5>Instructions</h5>
+        <ng-transclude></ng-transclude>
+    </div>
+</div>
