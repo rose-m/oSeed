@@ -3,7 +3,7 @@ var webpack = require('webpack');
 var ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 
 const ROOT_PATH = path.resolve(__dirname);
-const APP_PATH = path.resolve(ROOT_PATH, 'app');
+const SRC_PATH = path.resolve(ROOT_PATH, 'src');
 
 module.exports = {
     devtool: 'source-map',
@@ -11,13 +11,13 @@ module.exports = {
 
     entry: {
         components: ['font-awesome-loader', 'bootstrap-loader'],
-        app: path.resolve(APP_PATH, 'components', 'entry')
+        app: path.resolve(SRC_PATH, 'components', 'entry')
     },
     target: 'electron',
 
     output: {
-        path: path.resolve(ROOT_PATH, 'build'),
-        publicPath: 'build/',
+        path: path.resolve(ROOT_PATH, 'app', 'out'),
+        publicPath: './out/',
         filename: '[name].js',
         sourceMapFilename: '[name].js.map',
         chunkFilename: '[id].chunk.js'
@@ -46,11 +46,11 @@ module.exports = {
         loaders: [{
             test: /\.js$/,
             loader: 'babel',
-            include: APP_PATH
+            include: SRC_PATH
         }, {
             test: /\.ts$/,
             loaders: ['babel', 'ts'],
-            include: APP_PATH
+            include: SRC_PATH
         }, {
             test: /\.scss$/,
             loaders: ['style', 'css', 'sass']

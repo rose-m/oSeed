@@ -1,5 +1,7 @@
 {
-    "name": "electron-test",
-    "version": "0.0.1",
-    "main": "main.js"
+  "name": "oSeed",
+  "version": "0.0.1",
+  "description": "oSeed helps to get started with your own apps based on the popular oTree platform (http://otree.org)",
+  "author": "Michael Rose",
+  "main": "main.js"
 }
